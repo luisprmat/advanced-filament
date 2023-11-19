@@ -11,12 +11,19 @@ class TestForm extends Component
 
     public function render()
     {
-        $input = TextInput::make('email')
-            ->label(fn ($random, $foo, $state) => $state)
+        TextInput::configureUsing(function ($input) {
+            $input->maxLength(7);
+        });
+
+        $nameInput = TextInput::make('name')
+            ->livewire($this);
+
+        $emailInput = TextInput::make('email')
             ->livewire($this);
 
         return view('livewire.test-form', [
-            'input' => $input,
+            'nameInput' => $nameInput,
+            'emailInput' => $emailInput,
         ]);
     }
 }

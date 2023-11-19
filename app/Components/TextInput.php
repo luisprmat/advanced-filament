@@ -2,6 +2,7 @@
 
 namespace App\Components;
 
+use Closure;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
@@ -9,9 +10,13 @@ use Livewire\Component;
 
 class TextInput implements Htmlable
 {
-    protected string|\Closure $label;
+    protected string|Closure $label;
+
+    protected int|Closure|null $maxLength = null;
 
     protected Component $livewire;
+
+    protected static array $configurations = [];
 
     public function __construct(
         protected string $name,
@@ -23,12 +28,30 @@ class TextInput implements Htmlable
      */
     public static function make(string $name): self
     {
-        return new self($name);
+        $input = new self($name);
+
+        foreach (self::$configurations as $configuration) {
+            $configuration($input);
+        }
+
+        return $input;
     }
 
-    public function label(string|\Closure $label): self
+    public static function configureUsing(Closure $configure): void
+    {
+        self::$configurations[] = $configure;
+    }
+
+    public function label(string|Closure $label): self
     {
         $this->label = $label;
+
+        return $this;
+    }
+
+    public function maxLength(int|Closure|null $length): self
+    {
+        $this->maxLength = $length;
 
         return $this;
     }
@@ -47,7 +70,7 @@ class TextInput implements Htmlable
 
     public function evaluate($value)
     {
-        if ($value instanceof \Closure) {
+        if ($value instanceof Closure) {
             return app()->call($value, [
                 'foo' => 'bar',
                 'random' => Str::random(),
@@ -65,7 +88,7 @@ class TextInput implements Htmlable
         $methods = [];
 
         foreach ($reflection->getMethods(\ReflectionMethod::IS_PUBLIC) as $method) {
-            $methods[$method->getName()] = \Closure::fromCallable([$this, $method->getName()]);
+            $methods[$method->getName()] = Closure::fromCallable([$this, $method->getName()]);
         }
 
         return $methods;
@@ -74,6 +97,11 @@ class TextInput implements Htmlable
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getMaxLenght(): ?int
+    {
+        return $this->evaluate($this->maxLength);
     }
 
     /**

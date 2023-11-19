@@ -3,5 +3,5 @@
         {{ $getLabel() }}
     </span>
 
-    <input type="text" wire:model.live="{{ $getName() }}">
+    <input type="text" maxlength="{{ $getMaxLenght() }}" wire:model.live="{{ $getName() }}">
 </label>
