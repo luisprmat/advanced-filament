@@ -1,0 +1,3 @@
+{{-- {!! $input->render()->render() !!} --}}
+
+{{ $input }}
