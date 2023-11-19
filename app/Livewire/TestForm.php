@@ -15,10 +15,14 @@ class TestForm extends Component
             $input->maxLength(7);
         });
 
+        TextInput::macro('foo', fn () => dd('bar'));
+
         $nameInput = TextInput::make('name')
+            ->foo()
             ->livewire($this);
 
         $emailInput = TextInput::make('email')
+            ->foo()
             ->livewire($this);
 
         return view('livewire.test-form', [
