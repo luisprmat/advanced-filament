@@ -1,3 +1,0 @@
-{{-- {!! $input->render()->render() !!} --}}
-
-{{ $input }}
