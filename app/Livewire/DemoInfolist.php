@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Infolists\Components\ColorEntry;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Infolists\Concerns\InteractsWithInfolists;
@@ -19,10 +20,14 @@ class DemoInfolist extends Component implements HasForms, HasInfolists
     {
         return $infolist
             ->schema([
-                // ...
+                ColorEntry::make('color')
+                    ->width(fn (string $state): int => match ($state) {
+                        '#ff0000' => 4,
+                        '#0000ff' => 5
+                    }),
             ])
             ->state([
-                // ...
+                'color' => ['#ff0000', '#0000ff'],
             ]);
     }
 
