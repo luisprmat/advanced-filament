@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\User;
 use App\Tables\Columns\ColorColumn;
+use App\Tables\Filters\DateRangeFilter;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -27,6 +28,10 @@ class DemoTable extends Component implements HasForms, HasTable
                 ColorColumn::make('color'),
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->since(),
+            ])
+            ->filters([
+                DateRangeFilter::make('email_verified_at')
+                    ->maxDate(now()->addMonth()),
             ]);
     }
 
