@@ -1,0 +1,28 @@
+{
+    "name": "luisprmat/filament-toolkit",
+    "description": "Custom tools for filament",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Luisprmat\\FilamentToolkit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luis Parrado",
+            "email": "luisprmat@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "filament/support": "^3.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Luisprmat\\FilamentToolkit\\FilamentToolkitServiceProvider"
+            ]
+        }
+    }
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac8f8c70c74fc96775d7725750090350",
+    "content-hash": "3838464da3ea1ac9ace8b631c229365e",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -3154,6 +3154,44 @@
                 }
             ],
             "time": "2023-11-20T17:05:06+00:00"
+        },
+        {
+            "name": "luisprmat/filament-toolkit",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/filament-toolkit",
+                "reference": "66cb18f187bc488a4503bf72c0556e5773030547"
+            },
+            "require": {
+                "filament/support": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Luisprmat\\FilamentToolkit\\FilamentToolkitServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Luisprmat\\FilamentToolkit\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luis Parrado",
+                    "email": "luisprmat@gmail.com"
+                }
+            ],
+            "description": "Custom tools for filament",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "masterminds/html5",
@@ -9847,7 +9885,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
