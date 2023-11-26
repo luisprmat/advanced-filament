@@ -7,9 +7,7 @@ use DateTimeInterface;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Fieldset;
 use Filament\Tables\Filters\Filter;
-use Filament\Tables\Filters\Indicator;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
 
 class DateRangeFilter extends Filter
 {
@@ -42,21 +40,6 @@ class DateRangeFilter extends Filter
                         $data['to'] ?? null,
                         fn (Builder $query) => $query->whereDate($this->getName(), '<=', $data['to'])
                     );
-            })
-            ->indicateUsing(function (array $data): array {
-                $indicators = [];
-
-                if ($data['from'] ?? null) {
-                    $indicators[] = Indicator::make('Email verified from '.Carbon::parse($data['from'])->toFormattedDateString())
-                        ->removeField('from');
-                }
-
-                if ($data['to'] ?? null) {
-                    $indicators[] = Indicator::make('Email verified to '.Carbon::parse($data['to'])->toFormattedDateString())
-                        ->removeField('to');
-                }
-
-                return $indicators;
             });
     }
 

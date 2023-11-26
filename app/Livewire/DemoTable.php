@@ -8,8 +8,10 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Filters\Indicator;
 use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Luisprmat\FilamentToolkit\Tables\Columns\ColorColumn;
 use Luisprmat\FilamentToolkit\Tables\Filters\DateRangeFilter;
@@ -31,7 +33,22 @@ class DemoTable extends Component implements HasForms, HasTable
             ])
             ->filters([
                 DateRangeFilter::make('email_verified_at')
-                    ->maxDate(now()->addMonth()),
+                    ->maxDate(now()->addMonth())
+                    ->indicateUsing(function (array $data): array {
+                        $indicators = [];
+
+                        if ($data['from'] ?? null) {
+                            $indicators[] = Indicator::make('Email verified from '.Carbon::parse($data['from'])->toFormattedDateString())
+                                ->removeField('from');
+                        }
+
+                        if ($data['to'] ?? null) {
+                            $indicators[] = Indicator::make('Email verified to '.Carbon::parse($data['to'])->toFormattedDateString())
+                                ->removeField('to');
+                        }
+
+                        return $indicators;
+                    }),
             ]);
     }
 
