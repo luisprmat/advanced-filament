@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Infolists\Components;
+namespace Luisprmat\FilamentToolkit\Infolists\Components;
 
 use Closure;
 use Filament\Infolists\Components\Entry;
 
 class ColorEntry extends Entry
 {
-    protected string $view = 'infolists.components.color-entry';
+    protected string $view = 'filament-toolkit::infolists.components.color-entry';
 
     protected int|Closure|null $width = null;
 

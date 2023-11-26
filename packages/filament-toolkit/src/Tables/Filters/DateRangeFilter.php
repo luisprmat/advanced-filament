@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tables\Filters;
+namespace Luisprmat\FilamentToolkit\Tables\Filters;
 
 use Closure;
 use DateTimeInterface;

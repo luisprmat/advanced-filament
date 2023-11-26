@@ -3,8 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use App\Tables\Columns\ColorColumn;
-use App\Tables\Filters\DateRangeFilter;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -13,6 +11,8 @@ use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Luisprmat\FilamentToolkit\Tables\Columns\ColorColumn;
+use Luisprmat\FilamentToolkit\Tables\Filters\DateRangeFilter;
 
 class DemoTable extends Component implements HasForms, HasTable
 {

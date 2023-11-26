@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Forms\Components;
+namespace Luisprmat\FilamentToolkit\Forms\Components;
 
 use Closure;
 use Filament\Forms\Components\Field;
 
 class ColorPicker extends Field
 {
-    protected string $view = 'forms.components.color-picker';
+    protected string $view = 'filament-toolkit::forms.components.color-picker';
 
     protected int|Closure|null $width = null;
 

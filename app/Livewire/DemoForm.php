@@ -2,13 +2,13 @@
 
 namespace App\Livewire;
 
-use App\Forms\Components\ColorPicker;
-use App\Forms\Components\Section;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
+use Luisprmat\FilamentToolkit\Forms\Components\ColorPicker;
+use Luisprmat\FilamentToolkit\Forms\Components\Section;
 
 class DemoForm extends Component implements HasForms
 {
