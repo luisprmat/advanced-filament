@@ -19,7 +19,7 @@ class FilamentToolkitServiceProvider extends PackageServiceProvider
     public function packageBooted()
     {
         FilamentAsset::register([
-            Js::make('iro', 'https://cdn.jsdelivr.net/npm/@jaames/iro@5'),
+            Js::make('iro', __DIR__.'/../dist/iro.js'),
         ], 'luisprmat/filament-toolkit');
     }
 }
