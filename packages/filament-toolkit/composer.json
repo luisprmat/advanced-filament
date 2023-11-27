@@ -21,7 +21,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Luisprmat\\FilamentToolkit\\FilamentToolkitServiceProvider"
+                "Luisprmat\\FilamentToolkit\\FilamentToolkitServiceProvider",
+                "Luisprmat\\FilamentToolkit\\AdminPanelProvider"
             ]
         }
     }

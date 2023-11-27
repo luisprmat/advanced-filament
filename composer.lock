@@ -3161,7 +3161,7 @@
             "dist": {
                 "type": "path",
                 "url": "packages/filament-toolkit",
-                "reference": "66cb18f187bc488a4503bf72c0556e5773030547"
+                "reference": "73bc3cfdd9020ded6d6d6f73aa0b76285a531c41"
             },
             "require": {
                 "filament/support": "^3.0"
@@ -3170,7 +3170,8 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Luisprmat\\FilamentToolkit\\FilamentToolkitServiceProvider"
+                        "Luisprmat\\FilamentToolkit\\FilamentToolkitServiceProvider",
+                        "Luisprmat\\FilamentToolkit\\AdminPanelProvider"
                     ]
                 }
             },
