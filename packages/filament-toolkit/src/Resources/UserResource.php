@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace Luisprmat\FilamentToolkit\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Luisprmat\FilamentToolkit\Resources\UserResource\Pages;
 
 class UserResource extends Resource
 {
@@ -39,7 +39,8 @@ class UserResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email_verified_at')
                     ->dateTime()
-                    ->sortable(),
+                    ->sortable()
+                    ->visible(filament('luisprmat-toolkit')->hasEmailVerifiedAt()),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

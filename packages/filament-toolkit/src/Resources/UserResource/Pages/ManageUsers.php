@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filament\Resources\UserResource\Pages;
+namespace Luisprmat\FilamentToolkit\Resources\UserResource\Pages;
 
-use App\Filament\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ManageRecords;
+use Luisprmat\FilamentToolkit\Resources\UserResource;
 
 class ManageUsers extends ManageRecords
 {
